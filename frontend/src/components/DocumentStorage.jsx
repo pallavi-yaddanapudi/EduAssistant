@@ -225,7 +225,9 @@ export default function DocumentStorage() {
   };
 
   const getDocUrl = (filename) => {
-    return `http://localhost:5000/uploads/${filename}`;
+    const apiBase = import.meta.env.VITE_API_BASE_URL;
+    const base = apiBase ? apiBase.replace(/\/api\/?$/, '') : 'http://localhost:5000';
+    return `${base}/uploads/${filename}`;
   };
 
   return (
