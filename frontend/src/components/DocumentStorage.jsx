@@ -225,8 +225,8 @@ export default function DocumentStorage() {
   };
 
   const getDocUrl = (filename) => {
-    const apiBase = import.meta.env.VITE_API_BASE_URL;
-    const base = apiBase ? apiBase.replace(/\/api\/?$/, '') : 'http://localhost:5000';
+    const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://eduassistant.onrender.com/api';
+    const base = apiBase.replace(/\/api\/?$/, '');
     return `${base}/uploads/${filename}`;
   };
 
